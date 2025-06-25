@@ -1,9 +1,0 @@
-name: Workflow 2
-on: [push, pull_request]
-jobs:
-    test:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - name: Run test 2
-              run: echo "Running test 2" && sleep 20 # Longer to ensure it finishes after workflow1
