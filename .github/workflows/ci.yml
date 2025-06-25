@@ -1,0 +1,22 @@
+name: Simulation Workflow
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  simulate-work:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Simulate work (1 minute wait)
+        run: |
+          echo "Simulating intensive work..."
+          echo "This will take a minute"
+          sleep 60
+          echo "Work complete"
