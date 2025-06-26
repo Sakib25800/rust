@@ -13,7 +13,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+        
+      - name: Check for intentional failure
+        run: |
+          if git log -1 --pretty=%B | grep -q "\[fail\]"; then
+            echo "Found [fail] in commit message - intentionally failing CI"
+            exit 1
+          fi
+          
       - name: Simulate work (30s wait)
         run: |
           echo "Simulating intensive work..."
