@@ -2,7 +2,7 @@ name: Simulation Workflow
 
 on:
   push:
-    branches: [main, master, "automation/bors/try", "automation/bors/auto"]
+    branches: ["automation/bors/try", "automation/bors/auto"]
   pull_request:
     branches: [main, master]
 
