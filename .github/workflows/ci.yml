@@ -3,8 +3,6 @@ name: Simulation Workflow
 on:
   push:
     branches: ["automation/bors/try", "automation/bors/auto"]
-  pull_request:
-    branches: [main, master]
 
 jobs:
   simulate-work:
