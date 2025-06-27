@@ -15,14 +15,25 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-        
-      - name: Check for intentional failure
+
+      - name: Check for [fail] in pushed commits
+        if: github.event_name == 'push'
         run: |
-          if git log -1 --pretty=%B | grep -q "\[fail\]"; then
-            echo "Found [fail] in commit message - intentionally failing CI"
+          echo "Checking commit messages in range ${{ github.event.before }}..${{ github.sha }}"
+          if git log --format=%B "${{ github.event.before }}..${{ github.sha }}" | grep -q "\[fail\]"; then
+            echo "Found [fail] in commit message – failing CI"
             exit 1
           fi
-          
+
+      - name: Check for [fail] in PR title
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+          if echo "${{ github.event.pull_request.title }}" | grep -q "\[fail\]"; then
+            echo "Found [fail] in PR title – failing CI"
+            exit 1
+          fi
+
       - name: Simulate work (20s wait)
         run: |
           echo "Simulating intensive work..."
