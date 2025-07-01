@@ -38,3 +38,5 @@ jobs:
           echo "This will take 5s"
           sleep 5
           echo "Work complete"
+          exit 1 
+
