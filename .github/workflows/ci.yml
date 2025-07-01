@@ -32,9 +32,9 @@ jobs:
             exit 1
           fi
 
-      - name: Simulate work (5s wait)
+      - name: Simulate work (30s wait)
         run: |
           echo "Simulating intensive work..."
-          echo "This will take 5s"
-          sleep 5
+          echo "This will take 30s"
+          sleep 30
           echo "Work complete"
