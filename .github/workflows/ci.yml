@@ -34,6 +34,7 @@ jobs:
 
       - name: Simulate work (5s wait)
         run: |
+          exit 1 
           echo "Simulating intensive work..."
           echo "This will take 5s"
           sleep 5
