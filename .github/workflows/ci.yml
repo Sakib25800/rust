@@ -1,4 +1,4 @@
-name: Simulation Workflow
+name: Main CI Workflow
 
 on:
   push:
@@ -9,7 +9,6 @@ on:
 jobs:
   simulate-work:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,6 +24,7 @@ jobs:
             exit 1
           fi
 
+<<<<<<< Updated upstream
       - name: Check for [fail] in PR title
         if: github.event_name == 'pull_request'
         run: |
@@ -39,4 +39,11 @@ jobs:
           echo "Simulating intensive work..."
           echo "This will take 20s"
           sleep 20
+=======
+      - name: Simulate work (5s wait)
+        run: |
+          echo "Simulating intensive work..."
+          echo "This will take 5s"
+          sleep 5
+>>>>>>> Stashed changes
           echo "Work complete"

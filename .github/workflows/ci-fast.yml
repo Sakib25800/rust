@@ -1,0 +1,15 @@
+name: Fast Workflow
+
+on:
+  push:
+    branches: ["automation/bors/try", "automation/bors/auto"]
+
+jobs:
+  instant-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Instant completion
+        run: |
+          echo "This job completes immediately!"
+          echo "Done in 1 second"
+          sleep 1

@@ -1,0 +1,21 @@
+name: Slow Workflow
+
+on:
+  push:
+    branches: ["automation/bors/try", "automation/bors/auto"]
+
+jobs:
+  slow-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slow startup
+        run: |
+          echo "Starting slow job..."
+          echo "Waiting 30 seconds before starting actual work..."
+          sleep 30
+          
+      - name: Do work
+        run: |
+          echo "Now doing the actual work"
+          sleep 10
+          echo "Slow job complete"
