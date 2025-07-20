@@ -1,11 +1,27 @@
-# Maximum duration (in seconds) before timeout
-timeout_sec = 3600  # 1 hour, matching your default
+# Maximum duration of CI workflows before they are considered timed out.
+# (Required)
+timeout = 3600
 
-# Label configuration from your default
+# Whether to enable the merge queue or not.
+# When enabled, approved PRs will be automatically merged.
+# (Optional, defaults to false)
+merge_queue_enabled = true
+
+# Labels that should be set on a PR after an event happens.
+# "+<label>" adds the label, while "-<label>" removes the label after the event.
+# Supported events:
+# - try: Try build has started
+# - try_succeed: Try build has finished
+# - try_failed: Try build has failed
+# (Optional)
 [labels]
 approve = ["+approved"]
-try = ["+trying"]
-try_succeed = ["+tested"]
-try_failed = ["+test-failed"]
-succeeded=["+succeeded"]
-failed=["+failed"]
+try = ["+foo", "-bar"]
+try_succeed = ["+foobar", "+foo", "+baz"]
+try_failed = []
+succeeded = ["+foo", "+bar"]
+failed = ["+foo", "+bar"]
+
+# Labels that will block approval when present on a PR
+# (Optional)
+labels_blocking_approval = ["final-comment-period", "proposed-final-comment-period"]
