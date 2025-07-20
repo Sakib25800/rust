@@ -6,9 +6,6 @@ status = [
 # Maximum duration (in seconds) before timeout
 timeout_sec = 3600  # 1 hour, matching your default
 
-# Cleanup merged branches
-delete_merged_branches = true
-
 # Number of approvals needed
 required_approvals = 1
 
