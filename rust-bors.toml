@@ -21,7 +21,3 @@ try_succeed = ["+foobar", "+foo", "+baz"]
 try_failed = []
 succeeded = ["+foo", "+bar"]
 failed = ["+foo", "+bar"]
-
-# Labels that will block approval when present on a PR
-# (Optional)
-labels_blocking_approval = ["final-comment-period", "proposed-final-comment-period"]
