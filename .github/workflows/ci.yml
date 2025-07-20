@@ -23,3 +23,7 @@ jobs:
                     echo "Found [fail] in commit message – failing CI"
                     exit 1
                   fi
+
+            - name: Wait
+              run: |
+                  sleep 20
