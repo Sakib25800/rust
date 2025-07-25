@@ -26,5 +26,4 @@ jobs:
 
             - name: Wait
               run: |
-                  exit 1
                   sleep 20
