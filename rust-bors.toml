@@ -15,9 +15,9 @@ merge_queue_enabled = true
 # - try_failed: Try build has failed
 # (Optional)
 [labels]
-approve = ["+approved"]
+approved = ["+approved"]
 try = ["+foo", "-bar"]
-try_succeed = ["+foobar", "+foo", "+baz"]
+try_succeeded = ["+foobar", "+foo", "+baz"]
 try_failed = []
 succeeded = ["+foo", "+bar"]
 failed = ["+foo", "+bar"]
