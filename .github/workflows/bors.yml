@@ -1,0 +1,15 @@
+  name: Bors CI
+
+  on:
+    push:
+      branches:
+        - automation/bors/try
+        - automation/bors/auto
+        - automation/bors/try-perf
+
+  jobs:
+    ci:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Success
+          run: echo "ok"
