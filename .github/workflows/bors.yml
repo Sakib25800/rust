@@ -1,15 +1,17 @@
-  name: Bors CI
+name: Bors CI
 
-  on:
-    push:
-      branches:
-        - automation/bors/try
-        - automation/bors/auto
-        - automation/bors/try-perf
+on:
+  push:
+    branches:
+      - automation/bors/try
+      - automation/bors/auto
+      - automation/bors/try-perf
 
-  jobs:
-    ci:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Success
-          run: echo "ok"
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hold pending auto build
+        run: |
+          echo "Holding this auto build so a conflicting rollup can be created"
+          sleep 900
