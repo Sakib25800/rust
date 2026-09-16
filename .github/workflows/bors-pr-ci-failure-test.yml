@@ -1,0 +1,13 @@
+name: Bors PR CI failure test
+
+on:
+  pull_request:
+
+jobs:
+  pr-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail CI intentionally
+        run: |
+          echo "Testing rejection when PR CI fails"
+          exit 1
