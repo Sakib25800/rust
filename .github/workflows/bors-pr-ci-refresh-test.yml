@@ -1,0 +1,13 @@
+name: Bors PR CI refresh recovery test
+
+on:
+  pull_request:
+
+jobs:
+  pr-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Keep CI pending, then succeed
+        run: |
+          echo "Testing recovery after a missed completion webhook"
+          sleep 75
