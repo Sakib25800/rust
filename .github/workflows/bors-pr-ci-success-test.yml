@@ -1,0 +1,13 @@
+name: Bors PR CI success test
+
+on:
+  pull_request:
+
+jobs:
+  pr-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Keep CI pending, then succeed
+        run: |
+          echo "Testing tentative approval while CI is pending"
+          sleep 90
