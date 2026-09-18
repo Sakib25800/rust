@@ -1,0 +1,39 @@
+name: Tentative approval CI
+
+on:
+  pull_request: {}
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: Simulated PR CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run scenario
+        env:
+          SCENARIO: ${{ github.head_ref }}
+        run: |
+          case "$SCENARIO" in
+            proof/forced-approval|proof/ci-already-failed)
+              echo "Simulating completed failing CI for $SCENARIO"
+              exit 1
+              ;;
+            proof/ci-already-succeeded)
+              echo "Simulating completed successful CI for $SCENARIO"
+              ;;
+            proof/pending-then-succeeds)
+              echo "Keeping CI pending before success"
+              sleep 300
+              ;;
+            proof/pending-then-fails)
+              echo "Keeping CI pending before failure"
+              sleep 300
+              exit 1
+              ;;
+            *)
+              echo "Unknown proof scenario: $SCENARIO"
+              exit 1
+              ;;
+          esac
