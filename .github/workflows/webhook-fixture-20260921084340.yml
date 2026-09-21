@@ -1,0 +1,15 @@
+name: Webhook fixture capture 20260921084340
+
+on:
+  pull_request:
+    branches:
+      - webhook-fixture-base-20260921084340
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo test
